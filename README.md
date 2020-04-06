@@ -1,6 +1,8 @@
 1. To run tests
+    - cd ui
     - mvn clean test
 2. To generate allure report
+    - cd ui 
     - mvn site
 3. Already implemented
     - cucumber demo features
