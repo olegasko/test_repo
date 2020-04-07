@@ -3,6 +3,9 @@ package stepdefinitions;
 import core.SelenideProvider;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+
+import static core.AllureAttachments.takeScreenshot;
 
 public class Conditions {
 
@@ -12,7 +15,8 @@ public class Conditions {
     }
 
     @After
-    public void afterScenario() {
+    public void afterScenario(Scenario scenario) {
+        takeScreenshot(scenario);
         SelenideProvider.closeWebDriver();
     }
 }
