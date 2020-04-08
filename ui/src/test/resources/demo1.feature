@@ -1,3 +1,4 @@
+@tmsLink=EQFX-POC-01
 Feature: demo1 feature
 
 Scenario: Base demo scenario

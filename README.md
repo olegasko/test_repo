@@ -9,7 +9,10 @@
     - local run for webdriver (Selenide framework)
     - allure reporting
     - parallel test run
+    - screenshots in report
+    - link on JIRA ticket in report
 4. To do
     - integration with backend
-    - screenshots in report
     - run tests in Docker container (to integrate in pipeline)
+    - add video in report
+    - tool to estimate coverage
