@@ -1,0 +1,59 @@
+version: '3'
+services:
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    network_mode: bridge
+    ports:
+      - "4445:4444"
+    volumes:
+      - "./:/etc/selenoid/"
+      - "//var/run/docker.sock:/var/run/docker.sock"
+      - "/c/config/video:/opt/selenoid/video"
+      - "/c/config/logs:/opt/selenoid/logs"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/c/config/video
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs"]
+
+
+  selenoid-ui:
+    restart: always
+    network_mode: bridge
+    image: aerokube/selenoid-ui:latest
+    ports:
+      - "8081:8081"
+    links:
+      - ggr-ui
+    depends_on:
+      - ggr-ui
+    command: ["-listen", ":8081", "--selenoid-uri", "http://ggr-ui:8888"]
+
+  ggr:
+    restart: always
+    network_mode: bridge
+    image: aerokube/ggr:latest-release
+    ports:
+      - "4444:4444"
+    links:
+      - selenoid
+    depends_on:
+      - selenoid
+    volumes:
+      - "./grid-router/:/etc/grid-router:ro"
+
+  ggr-ui:
+    restart: always
+    network_mode: bridge
+    image: aerokube/ggr-ui:latest
+    ports:
+      - "8888:8888"
+    depends_on:
+      - selenoid
+    links:
+      - selenoid
+    volumes:
+      - "./grid-router/:/etc/grid-router:ro"
+
+
+
+
+
