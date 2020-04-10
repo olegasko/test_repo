@@ -18,7 +18,7 @@ public class Conditions {
     @After
     public void afterScenario(Scenario scenario) {
         takeScreenshot(scenario);
-        attachAllureVideo();
+        attachAllureVideo(scenario);
         SelenideProvider.closeWebDriver();
     }
 }
