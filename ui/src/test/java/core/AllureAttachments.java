@@ -2,6 +2,8 @@ package core;
 
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.TestPropertySource;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,9 +17,11 @@ import static core.SelenideProvider.deleteSelenoidVideo;
 import static core.SelenideProvider.getDriverSessionId;
 import static core.SelenideProvider.getSelenoidVideo;
 
+@TestPropertySource(value = {"classpath:config.properties"})
 public class AllureAttachments {
 
-    private static String selenoidUiUrl ="http://localhost:8080";
+    @Value("${selenoid.url}")
+    private static String selenoidUiUrl;
 
     public static void takeScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {

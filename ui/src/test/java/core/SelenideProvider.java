@@ -11,6 +11,8 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.TestPropertySource;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +23,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @NoArgsConstructor
+@TestPropertySource(value = {"classpath:config.properties"})
 public class SelenideProvider {
+
+    @Value("${application.url}")
+    private static String applicationUrl;
 
     public static void init() {
         Configuration.baseUrl = "http://";
