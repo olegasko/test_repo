@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import collers.LocationCall;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -29,10 +30,10 @@ public class StepDefinitions {
                 .isTrue();
     }
 
-//    @Then("call on geolocation return proper has status")
-//    public void thenUsingBackend() {
-//        assertThat(LocationCall.getLocation().getStatusCode())
-//                .as("Wrong response status")
-//                .isEqualTo(200);
-//    }
+    @Then("call on geolocation return proper has status")
+    public void thenUsingBackend() {
+        assertThat(LocationCall.getLocation().getStatusCode())
+                .as("Wrong response status")
+                .isEqualTo(200);
+    }
 }

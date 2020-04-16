@@ -8,6 +8,14 @@
     <artifactId>ui</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>internal.repo</id>
+            <name>Internal repo</name>
+            <url>file://C:\Users\Oleg_Konichenko\.m2</url>
+        </repository>
+    </repositories>
+
     <properties>
         <selenide.version>5.6.1</selenide.version>
         <cucumber.version>5.5.0</cucumber.version>
@@ -86,6 +94,17 @@
             <artifactId>cucumber-spring</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>backend</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
