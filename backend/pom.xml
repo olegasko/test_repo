@@ -12,6 +12,7 @@
         <repository>
             <id>internal.repo</id>
             <name>Internal repo</name>
+<!--            update to your own local .m2 -->
             <url>file://C:\Users\Oleg_Konichenko\.m2</url>
         </repository>
     </distributionManagement>
