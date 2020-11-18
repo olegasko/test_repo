@@ -5,7 +5,6 @@ Feature: demo2 feature
     Given on the EPAM main page
     When click on Menu button
     Then menu is open
-#  And call on geolocation return proper has status
 
   Scenario: Base demo scenario3
     Given on the EPAM main page
