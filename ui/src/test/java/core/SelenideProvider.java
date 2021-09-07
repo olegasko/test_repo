@@ -36,7 +36,7 @@ public class SelenideProvider {
         Configuration.timeout = 20000;
         Configuration.reportsFolder = "target/selenide-screenshots";
         Configuration.browserCapabilities = getCapabilities();
-        Configuration.remote = "http://test:test-password@localhost:4444/wd/hub";
+//        Configuration.remote = "http://test:test-password@localhost:4444/wd/hub";
         Configuration.driverManagerEnabled = false;
     }
 

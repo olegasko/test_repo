@@ -13,6 +13,6 @@ public class RunCucumberTest {
 
     @BeforeClass
     public static void before() {
-        System.out.println("Put here anything yun need before all tests");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromedriver.exe");
     }
 }
