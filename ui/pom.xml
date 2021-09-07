@@ -93,6 +93,14 @@
             <version>${rest-assured.version}</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
