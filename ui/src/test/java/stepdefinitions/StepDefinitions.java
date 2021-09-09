@@ -22,10 +22,34 @@ public class StepDefinitions {
         page.openLocationMenu();
     }
 
-    @Then("menu is open")
-    public void thenExample() {
+//    @Then("menu is open")
+//    public void thenExample() {
+//        assertThat(page.isMenuVisible())
+//                .as("Menu is not visible")
+//                .isTrue();
+//    }
+
+    @Then("blbla")
+    @When("menu is open")
+    public void whenMenuIsOpen() {
         assertThat(page.isMenuVisible())
                 .as("Menu is not visible")
+                .isTrue();
+    }
+
+    @Then("activate Location 'Global (EN)'")
+    public void activateLocationGlobalEN() {
+        page.activateLocationGlobalEN();
+        assertThat(page.isLocationGlobalEN())
+                .as("Location is not Global (EN)")
+                .isTrue();
+    }
+
+    @Then("activate Location 'Україна (UA)'")
+    public void activateLocationUkraineUA() {
+        page.activateLocationUkraineUA();
+        assertThat(page.isLocationUkraineUA())
+                .as("Location is not Україна (UA)")
                 .isTrue();
     }
 }
