@@ -5,14 +5,15 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 //TODO refactor extend main page, move not common things in separate classes
 public class MainPage {
 
     SelenideElement locationButton = $(".location-selector__button");
     SelenideElement locationsList = $(".location-selector__list");
-    SelenideElement LocationGlobalENButton = $(By.xpath(".//ul[@class='location-selector__list']//a[text()='Global ']"));
-    SelenideElement LocationUkraineUAButton = $(By.xpath(".//ul[@class='location-selector__list']//a[text()='Україна ']"));
+    SelenideElement LocationGlobalENButton = $x(".//ul[@class='location-selector__list']//a[text()='Global ']");
+    SelenideElement LocationUkraineUAButton = $x(".//ul[@class='location-selector__list']//a[text()='Україна ']");
 
 
     public void openLocationMenu() {
