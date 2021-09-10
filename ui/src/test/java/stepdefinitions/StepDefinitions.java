@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,9 +24,26 @@ public class StepDefinitions {
     }
 
     @Then("menu is open")
-    public void thenExample() {
+    public void whenMenuIsOpen() {
         assertThat(page.isMenuVisible())
                 .as("Menu is not visible")
+                .isTrue();
+    }
+
+    //TODO assertion should be in separate 'then' step
+    @Then("activate Location 'Global (EN)'")
+    public void activateLocationGlobalEN() {
+        page.activateLocationGlobalEN();
+        assertThat(page.isLocationGlobalEN())
+                .as("Location is not Global (EN)")
+                .isTrue();
+    }
+
+    @Then("activate Location 'Україна (UA)'")
+    public void activateLocationUkraineUA() {
+        page.activateLocationUkraineUA();
+        assertThat(page.isLocationUkraineUA())
+                .as("Location is not Україна (UA)")
                 .isTrue();
     }
 }

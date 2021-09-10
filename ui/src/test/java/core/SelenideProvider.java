@@ -32,7 +32,7 @@ public class SelenideProvider {
     public static void init() {
         Configuration.baseUrl = "http://";
         Configuration.browser = Browsers.CHROME;
-        Configuration.browserSize = "1920x1080";
+        Configuration.startMaximized = true;
         Configuration.timeout = 20000;
         Configuration.reportsFolder = "target/selenide-screenshots";
         Configuration.browserCapabilities = getCapabilities();
