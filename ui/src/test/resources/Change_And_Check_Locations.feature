@@ -1,16 +1,26 @@
 @tmsLink=EQFX-POC-02
 Feature: Change And Check Locations feature
 
-  Scenario: Change And Check Locations 'Україна (UA)' and 'Global (EN)'
+  Scenario Outline: Check List Of Locations
 
     Given on the EPAM main page
 
     When click on Menu button
     Then menu is open
-    And activate Location 'Україна (UA)'
-    And Location is 'Україна (UA)'
+    And activate Location "<region>" & "<lang>"
+    And Location is "<region> (<lang>)"
 
-    And click on Menu button
-    And menu is open
-    And activate Location 'Global (EN)'
-    And Location is 'Global (EN)'
+    Examples:
+      | region          | lang |
+      | Global          | EN   |
+      | Hungary         | EN   |
+      | Беларусь        | РУ   |
+      | Czech Republic  | EN   |
+      | India           | EN   |
+      | Россия          | РУ   |
+      | Česká Republika | CS   |
+      | Polska          | PL   |
+      | Україна         | UA   |
+      | DACH            | DE   |
+      | 中国              | 中文   |
+

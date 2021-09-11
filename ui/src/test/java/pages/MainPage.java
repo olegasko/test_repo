@@ -12,8 +12,6 @@ public class MainPage {
 
     SelenideElement locationButton = $(".location-selector__button");
     SelenideElement locationsList = $(".location-selector__list");
-    SelenideElement LocationGlobalENButton = $x(".//ul[@class='location-selector__list']//a[text()='Global ']");
-    SelenideElement LocationUkraineUAButton = $x(".//ul[@class='location-selector__list']//a[text()='Україна ']");
 
 
     public void openLocationMenu() {
@@ -28,18 +26,11 @@ public class MainPage {
         return locationButton.should(Condition.appear).getText().equals(location);
     }
 
-    public void activateLocation(String location) {
-        boolean check = isLocationCorrect(location);
-        if (!check ) {
-            switch (location) {
-                case "Global (EN)":
-                    LocationGlobalENButton.click();
-                    break;
-                case "Україна (UA)":
-                    LocationUkraineUAButton.click();
-            }
-        }
+    public void activateLocation(String region, String lang) {
+        SelenideElement LocationButton = $x(".//ul[@class='location-selector__list']//a[text()='" + region +" ']");
+        String location = region + " (" + lang + ")";
+        if (!isLocationCorrect(location)) LocationButton.click();
     }
-
-
 }
+
+

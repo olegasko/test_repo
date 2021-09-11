@@ -29,9 +29,9 @@ public class StepDefinitions {
                 .isTrue();
     }
 
-    @Then("activate Location {string}")
-    public void activateLocation(String location) {
-        page.activateLocation(location);
+    @Then("activate Location {string} & {string}")
+    public void activateLocation(String region, String lang) {
+        page.activateLocation(region, lang);
     }
 
     @Then("Location is {string}")
