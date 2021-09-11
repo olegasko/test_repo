@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
+
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -21,22 +21,25 @@ public class MainPage {
     }
 
     public boolean isMenuVisible() {
-        return locationsList.is(Condition.visible);
+        return locationsList.should(Condition.appear).is(Condition.visible);
     }
 
-    public boolean isLocationUkraineUA() {
-        return locationButton.getText().equals("Україна (UA)");
+    public boolean isLocationCorrect(String location) {
+        return locationButton.should(Condition.appear).getText().equals(location);
     }
 
-    public boolean isLocationGlobalEN() {
-        return locationButton.getText().equals("Global (EN)");
+    public void activateLocation(String location) {
+        boolean check = isLocationCorrect(location);
+        if (!check ) {
+            switch (location) {
+                case "Global (EN)":
+                    LocationGlobalENButton.click();
+                    break;
+                case "Україна (UA)":
+                    LocationUkraineUAButton.click();
+            }
+        }
     }
 
-    public void activateLocationGlobalEN() {
-        if (!isLocationGlobalEN()) LocationGlobalENButton.click();
-    }
 
-    public void activateLocationUkraineUA() {
-        if (!isLocationUkraineUA()) LocationUkraineUAButton.click();
-    }
 }

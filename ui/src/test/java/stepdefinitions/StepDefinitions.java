@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,36 +13,31 @@ public class StepDefinitions {
     MainPage page = new MainPage();
 
     @Given("on the EPAM main page")
-    public void givenExample() {
+    public void givenOnTheEpamMainPage() {
         open("epam.com");
     }
 
     @When("click on Menu button")
-    public void whenExample() {
+    public void whenClickOnMenuButton() {
         page.openLocationMenu();
     }
 
     @Then("menu is open")
-    public void whenMenuIsOpen() {
+    public void thenMenuIsOpen() {
         assertThat(page.isMenuVisible())
                 .as("Menu is not visible")
                 .isTrue();
     }
 
-    //TODO assertion should be in separate 'then' step
-    @Then("activate Location 'Global (EN)'")
-    public void activateLocationGlobalEN() {
-        page.activateLocationGlobalEN();
-        assertThat(page.isLocationGlobalEN())
-                .as("Location is not Global (EN)")
-                .isTrue();
+    @Then("activate Location {string}")
+    public void activateLocation(String location) {
+        page.activateLocation(location);
     }
 
-    @Then("activate Location 'Україна (UA)'")
-    public void activateLocationUkraineUA() {
-        page.activateLocationUkraineUA();
-        assertThat(page.isLocationUkraineUA())
-                .as("Location is not Україна (UA)")
+    @Then("Location is {string}")
+    public void LocationIsCorrect(String location) {
+        assertThat(page.isLocationCorrect(location))
+                .as("Location is not " + location)
                 .isTrue();
     }
 }
