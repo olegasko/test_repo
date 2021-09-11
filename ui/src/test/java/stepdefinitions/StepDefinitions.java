@@ -12,18 +12,18 @@ public class StepDefinitions {
 
     MainPage page = new MainPage();
 
-    @Given("on the EPAM main page")
-    public void givenOnTheEpamMainPage() {
+    @Given("user is on the EPAM main page")
+    public void userIsOnTheEpamMainPage() {
         open("epam.com");
     }
 
-    @When("click on Menu button")
-    public void whenClickOnMenuButton() {
+    @When("user clicks on menu button")
+    public void userClicksOnMenuButton() {
         page.openLocationMenu();
     }
 
     @Then("menu is open")
-    public void thenMenuIsOpen() {
+    public void MenuIsOpen() {
         assertThat(page.isMenuVisible())
                 .as("Menu is not visible")
                 .isTrue();
@@ -39,5 +39,26 @@ public class StepDefinitions {
         assertThat(page.isLocationCorrect(location))
                 .as("Location is not " + location)
                 .isTrue();
+    }
+
+
+    @Given("user is on the {string}")
+    public void userIsOnThePage(String page) {
+    }
+
+    @When("user clicks on the link {string} on footer")
+    public void userClicksOnTheLinkOnFooter(String linkOnFooter) {
+    }
+
+    @Then("user can see {string} page")
+    public void userCanSeeThePage() {
+    }
+
+    @Then("user can see the <List Of Links> on this page")
+    public void userCanSeeTheListOfLinks() {
+    }
+
+    @Then("the <List Of Links> has correct order")
+    public void theListOfLinksHasCorrectOrder() {
     }
 }
