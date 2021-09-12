@@ -1,4 +1,4 @@
-@tmsLink=EQFX-POC-02
+@tmsLink=EQFX-POC-01
 Feature: Change And Check Locations feature
 
   Scenario Outline: Check List Of Locations

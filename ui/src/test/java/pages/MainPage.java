@@ -42,5 +42,3 @@ public class MainPage {
         investorsButton.click();
     }
 }
-
-

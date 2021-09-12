@@ -1,4 +1,4 @@
-@tmsLink=EQFX-POC-03
+@tmsLink=EQFX-POC-02
 Feature: Check List Of Links On Investors Page feature
 
   Scenario: Check List Of Links
