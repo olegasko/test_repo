@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.InvestorsPage;
 import pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StepDefinitions {
 
     MainPage page = new MainPage();
+    InvestorsPage investorsPage = new InvestorsPage();
 
     @Given("user is on the EPAM main page")
     public void userIsOnTheEpamMainPage() {
@@ -41,24 +43,23 @@ public class StepDefinitions {
                 .isTrue();
     }
 
-
-    @Given("user is on the {string}")
-    public void userIsOnThePage(String page) {
-    }
-
-    @When("user clicks on the link {string} on footer")
-    public void userClicksOnTheLinkOnFooter(String linkOnFooter) {
+    @When("user clicks on the link 'Investors' on footer")
+    public void userClicksOnTheLinkInvestorsOnFooter() {
+        page.openInvestorsPage();
     }
 
     @Then("user can see {string} page")
-    public void userCanSeeThePage() {
+    public void userCanSeeThePage(String Url) {
+        assertThat(investorsPage.isUrlCorrect(Url))
+                .as("Url is not correct")
+                .isTrue();
     }
 
-    @Then("user can see the <List Of Links> on this page")
+    @Then("user can see list of links on this page")
     public void userCanSeeTheListOfLinks() {
     }
 
-    @Then("the <List Of Links> has correct order")
+    @Then("list has correct order")
     public void theListOfLinksHasCorrectOrder() {
     }
 }
