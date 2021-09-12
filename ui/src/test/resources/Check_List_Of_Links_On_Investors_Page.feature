@@ -8,3 +8,4 @@ Feature: Check List Of Links On Investors Page feature
     Then user can see 'https://investors.epam.com/investors' page
     And user can see list of links on this page
     And list has correct order
+      | Stock Price | Quarterly Earnings | SEC Filings | News | Events | Leadership & Governance | FAQ | Contact Investor Relations |

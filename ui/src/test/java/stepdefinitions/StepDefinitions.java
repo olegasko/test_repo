@@ -1,10 +1,13 @@
 package stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.InvestorsPage;
 import pages.MainPage;
+
+import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -63,6 +66,9 @@ public class StepDefinitions {
     }
 
     @Then("list has correct order")
-    public void theListOfLinksHasCorrectOrder() {
+    public void theListOfLinksHasCorrectOrder(DataTable listOfLinks) {
+        assertThat(investorsPage.isListOfLinksHasCorrectOrder(listOfLinks))
+                .as("The list of links has wrong order")
+                .isTrue();
     }
 }
