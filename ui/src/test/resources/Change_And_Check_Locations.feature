@@ -4,8 +4,8 @@ Feature: Change And Check Locations feature
   Scenario Outline: Check List Of Locations
 
     Given user is on the EPAM main page
-    When user clicks on menu button
-    Then menu is open
+    When user clicks on location menu button
+    Then location menu is open
     And activate Location "<region>" & "<lang>"
     And Location is "<region> (<lang>)"
 

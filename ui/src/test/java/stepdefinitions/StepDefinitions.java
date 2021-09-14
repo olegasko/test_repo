@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.CommonPage;
 import pages.InvestorsPage;
 import pages.MainPage;
 
@@ -22,14 +23,14 @@ public class StepDefinitions {
         open("epam.com");
     }
 
-    @When("user clicks on menu button")
-    public void userClicksOnMenuButton() {
+    @When("user clicks on location menu button")
+    public void userClicksOnLocationMenuButton() {
         page.openLocationMenu();
     }
 
-    @Then("menu is open")
-    public void MenuIsOpen() {
-        assertThat(page.isMenuVisible())
+    @Then("location menu is open")
+    public void locationMenuIsOpen() {
+        assertThat(page.isLocationMenuVisible())
                 .as("Menu is not visible")
                 .isTrue();
     }
@@ -40,7 +41,7 @@ public class StepDefinitions {
     }
 
     @Then("Location is {string}")
-    public void LocationIsCorrect(String location) {
+    public void locationIsCorrect(String location) {
         assertThat(page.isLocationCorrect(location))
                 .as("Location is not " + location)
                 .isTrue();
@@ -52,8 +53,8 @@ public class StepDefinitions {
     }
 
     @Then("user can see {string} page")
-    public void userCanSeeThePage(String Url) {
-        assertThat(investorsPage.isUrlCorrect(Url))
+    public void userCanSeeTheRequestedPage(String Url) {
+        assertThat(CommonPage.isUrlCorrect(Url))
                 .as("Url is not correct")
                 .isTrue();
     }
@@ -67,7 +68,7 @@ public class StepDefinitions {
 
     @Then("list has correct order")
     public void theListOfLinksHasCorrectOrder(DataTable listOfLinks) {
-        assertThat(investorsPage.isListOfLinksHasCorrectOrder(listOfLinks))
+        assertThat(investorsPage.isListOfLinksHasCorrectOrder(listOfLinks.transpose().asList()))
                 .as("The list of links has wrong order")
                 .isTrue();
     }
