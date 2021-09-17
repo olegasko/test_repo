@@ -1,7 +1,7 @@
 @tmsLink=EQFX-POC-01
 Feature: Change And Check Locations feature
 
-  Scenario Outline: Check List Of Locations
+  Scenario Outline: Check List Of Location #<№>: <region> (<lang>)
 
     Given user is on the EPAM main page
     When user clicks on location menu button
