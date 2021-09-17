@@ -10,12 +10,12 @@
 
     <properties>
         <selenide.version>5.24.3</selenide.version>
-        <cucumber.version>5.7.0</cucumber.version>
         <allure.version>2.14.0</allure.version>
         <lombok.version>1.18.20</lombok.version>
         <junit.version>4.13.2</junit.version>
         <aspectj.version>1.9.8.M1</aspectj.version>
         <assertj.version>3.20.2</assertj.version>
+        <cucumber.version>6.11.0</cucumber.version>
         <rest-assured.version>2.9.0</rest-assured.version>
         <spring.version>5.3.10</spring.version>
     </properties>
