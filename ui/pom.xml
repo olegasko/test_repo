@@ -12,11 +12,11 @@
     <artifactId>ui</artifactId>
 
     <properties>
-        <selenide.version>5.24.3</selenide.version>
-        <allure.version>2.14.0</allure.version>
+        <selenide.version>5.24.4</selenide.version>
+        <allure.version>2.15.0</allure.version>
         <junit.version>4.13.2</junit.version>
         <aspectj.version>1.9.8.M1</aspectj.version>
-        <assertj.version>3.20.2</assertj.version>
+        <assertj.version>3.21.0</assertj.version>
         <cucumber.version>6.11.0</cucumber.version>
         <spring.version>5.3.10</spring.version>
     </properties>
@@ -88,7 +88,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.0.1</version>
+            <version>5.0.2</version>
         </dependency>
 
     </dependencies>
