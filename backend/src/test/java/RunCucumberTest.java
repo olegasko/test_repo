@@ -2,7 +2,6 @@ import core.Config;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.spring.CucumberContextConfiguration;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -14,15 +13,4 @@ import org.springframework.test.context.ContextConfiguration;
 @CucumberContextConfiguration
 @ContextConfiguration(classes = Config.class)
 public class RunCucumberTest {
-
-
-    @BeforeClass
-    public static void createRequestSpecification() {
-    }
-
-    @BeforeClass
-    public static void createResponseSpecification() {
-
-    }
-
 }

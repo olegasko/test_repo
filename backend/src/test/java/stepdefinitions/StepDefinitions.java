@@ -1,42 +1,33 @@
 package stepdefinitions;
 
-import com.jayway.restassured.http.ContentType;
 import dataentities.Pet;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static com.jayway.restassured.RestAssured.given;
+import static api.PetApiCalls.petGet;
+import static api.PetApiCalls.petPost;
+import static api.PetApiCalls.petPut;
 
 public class StepDefinitions {
 
-    @Given("pet is created")
-    public void petIsCreated() {
+    private String NAME;
 
-        Pet pet = new Pet();
-
-        pet.setName("Шарик");
-        pet.addPhotoUrl("https://google.com/search?q=%D0%A8%D0%B0%D1%80%D0%B8%D0%BA&tbm=isch");
-
-
-        given().
-                contentType(ContentType.JSON).
-                body(pet).
-                log().body().
-        when().
-                post("https://petstore.swagger.io/v2/pet").
-        then().
-                assertThat().
-                statusCode(200).
-                log().all();
+    @Given("pet {string} with photo Urls is created")
+    public void petIsCreated(String name, DataTable photoUrls) {
+        NAME = name;
+        petPost("/pet", null, new Pet(name, photoUrls.asList()));
     }
 
-    @When("I update a pet")
+    @When("I update the pet")
     public void iUpdateAPet() {
+        petPut("/pet", null, NAME);
     }
 
     @Then("I get updated pet")
     public void iGetUpdatedPet() {
+        petGet("/pet", null, NAME);
     }
 
 }
