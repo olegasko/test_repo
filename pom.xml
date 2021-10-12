@@ -15,7 +15,7 @@
 
     <properties>
         <selenide.version>5.24.4</selenide.version>
-        <rest-assured.version>2.9.0</rest-assured.version>
+        <rest-assured.version>4.3.3</rest-assured.version>
         <lombok.version>1.18.20</lombok.version>
         <cucumber.version>6.11.0</cucumber.version>
         <junit.version>4.13.2</junit.version>
@@ -44,10 +44,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.jayway.restassured</groupId>
+            <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${rest-assured.version}</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>

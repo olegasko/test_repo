@@ -1,12 +1,14 @@
 package api;
 
 
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 import java.util.Map;
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
+
 
 public abstract class BaseApiCalls {
 

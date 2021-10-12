@@ -1,6 +1,6 @@
 package api;
 
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 
 import java.util.Map;
 

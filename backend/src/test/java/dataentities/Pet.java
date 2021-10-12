@@ -1,6 +1,5 @@
 package dataentities;
 
-import com.jayway.restassured.http.ContentType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
