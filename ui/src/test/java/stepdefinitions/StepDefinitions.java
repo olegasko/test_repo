@@ -72,4 +72,14 @@ public class StepDefinitions {
                 .as("The list of links has wrong order")
                 .isTrue();
     }
+
+    @When("user click on link '{string}' in header")
+    public void userClickOnLinkInHeader(String linkName){
+      page.clickOnLink(linkName);
+    }
+
+   // @Then("user on the page '{string}'")
+   // public  void userOnThePage(String page){
+    //  assertThat()
+    //}
 }

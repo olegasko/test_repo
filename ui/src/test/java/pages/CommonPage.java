@@ -44,4 +44,15 @@ public abstract class CommonPage {
         closeCookiesBanner();
         investorsButton.click();
     }
+    public void clickOnLink(String linkName){
+        SelenideElement Link = $x("//a[string()='"+ linkName + "' and @class='top-navigation__item-link']");
+        Link.click();
+    }
+
+    public boolean isPageCorrect(String page){
+        return true;
+
+    }
+
+
 }
