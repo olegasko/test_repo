@@ -53,6 +53,4 @@ public abstract class CommonPage {
         return true;
 
     }
-
-
 }
