@@ -45,12 +45,14 @@ public abstract class CommonPage {
         investorsButton.click();
     }
     public void clickOnLink(String linkName){
-        SelenideElement Link = $x("//a[string()='"+ linkName + "' and @class='top-navigation__item-link']");
+        SelenideElement Link = $x("//a[string()='"+ linkName + "' and contains(@class, 'top-navigation__item-link')]");
         Link.click();
     }
 
-    public boolean isPageCorrect(String page){
-        return true;
-
+    public boolean isPageCorrect(String pageName) {
+        SelenideElement Title = $x("//h1");
+        return Title.getText().contains(pageName);
     }
+
+
 }

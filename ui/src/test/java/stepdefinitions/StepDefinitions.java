@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CommonPage;
+import pages.HowWeDoItPage;
 import pages.InvestorsPage;
 import pages.MainPage;
 
@@ -17,11 +18,13 @@ public class StepDefinitions {
 
     MainPage page = new MainPage();
     InvestorsPage investorsPage = new InvestorsPage();
+    HowWeDoItPage howWeDoItPage = new HowWeDoItPage();
 
     @Given("user is on the EPAM main page")
     public void userIsOnTheEpamMainPage() {
         open("epam.com");
     }
+
 
     @When("user clicks on location menu button")
     public void userClicksOnLocationMenuButton() {
@@ -73,14 +76,29 @@ public class StepDefinitions {
                 .isTrue();
     }
 
-    @When("user click on link '{string}' in header")
+    @When("user click on link {string} in header")
     public void userClickOnLinkInHeader(String linkName){
       page.clickOnLink(linkName);
     }
 
-   // @Then("user on the page '{string}'")
-   // public  void userOnThePage(String page){
-    //  assertThat()
-    //}
-}
+   @Then("user on the page {string}")
+    public  void userOnThePage(String pageName){
+       assertThat(page.isPageCorrect(pageName))
+               .as("The page is not correct")
+               .isTrue();
+    }
 
+    @Then("user can see blocks {string}")
+    public void userCanSeeBlocks(String blocksName) {
+        assertThat(howWeDoItPage.IsBlocksExist(blocksName))
+                .as("The blocks don't exist")
+                .isTrue();
+    }
+
+    @Then("blocks has correct order")
+    public void blocksHasCorrectOrder(DataTable ListOfBlocks) {
+        assertThat(howWeDoItPage.isListOfBlocksHasCorrectOder(ListOfBlocks.transpose().asList()))
+                .as("The list of blocks has wrong order")
+                .isTrue();
+    }
+}
