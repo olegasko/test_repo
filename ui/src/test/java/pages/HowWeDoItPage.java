@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class HowWeDoItPage extends CommonPage{
-    private String CurrentBlocksName;
+    private String CurrentBlocksName = "";
     public  boolean IsBlocksExist(String blocksName){
         SelenideElement section = $x("//section[contains(string(),'"+ blocksName +"')]");
         CurrentBlocksName = blocksName;
