@@ -11,12 +11,4 @@
 
     <artifactId>backend</artifactId>
 
-    <distributionManagement>
-        <repository>
-            <id>internal.repo</id>
-            <name>Internal repo</name>
-            <url>file://C:\Users\alang\.m2</url>
-        </repository>
-    </distributionManagement>
-
 </project>
