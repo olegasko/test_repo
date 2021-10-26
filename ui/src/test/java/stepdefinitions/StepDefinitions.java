@@ -83,22 +83,22 @@ public class StepDefinitions {
 
    @Then("user on the page {string}")
     public  void userOnThePage(String pageName){
-       assertThat(page.isPageCorrect(pageName))
+       assertThat(page.GetPageName())
                .as("The page is not correct")
-               .isTrue();
+               .isEqualTo(pageName);
     }
 
     @Then("user can see blocks {string}")
-    public void userCanSeeBlocks(String blocksName) {
-        assertThat(howWeDoItPage.IsBlocksExist(blocksName))
+    public void userCanSeeBlocks(String sectionName) {
+        assertThat(howWeDoItPage.ListOfSections())
                 .as("The blocks don't exist")
-                .isTrue();
+                .contains(sectionName);
     }
 
     @Then("blocks has correct order")
     public void blocksHasCorrectOrder(DataTable ListOfBlocks) {
-        assertThat(howWeDoItPage.isListOfBlocksHasCorrectOder(ListOfBlocks.transpose().asList()))
+        assertThat(howWeDoItPage.ListOfBlocks())
                 .as("The list of blocks has wrong order")
-                .isTrue();
+                .isEqualTo(ListOfBlocks.transpose().asList());
     }
 }

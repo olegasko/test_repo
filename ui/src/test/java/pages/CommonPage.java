@@ -35,9 +35,9 @@ public abstract class CommonPage {
     }
 
     public void activateLocation(String region, String lang) {
-        SelenideElement LocationButton = $x(".//ul[@class='location-selector__list']//a[text()='" + region + " ']");
+        SelenideElement locationButton = $x(".//ul[@class='location-selector__list']//a[text()='" + region + " ']");
         String location = region + " (" + lang + ")";
-        if (!isLocationCorrect(location)) LocationButton.click();
+        if (!isLocationCorrect(location)) locationButton.click();
     }
 
     public void openInvestorsPage() {
@@ -45,14 +45,13 @@ public abstract class CommonPage {
         investorsButton.click();
     }
     public void clickOnLink(String linkName){
-        SelenideElement Link = $x("//a[string()='"+ linkName + "' and contains(@class, 'top-navigation__item-link')]");
-        Link.click();
+        SelenideElement link = $x("//a[string()='"+ linkName + "' and contains(@class, 'top-navigation__item-link')]");
+        link.click();
     }
 
-    public boolean isPageCorrect(String pageName) {
-        SelenideElement Title = $x("//h1");
-        return Title.getText().contains(pageName);
+    public String GetPageName() {
+        SelenideElement title = $x("//h1");
+        return title.getText();
     }
-
 
 }
