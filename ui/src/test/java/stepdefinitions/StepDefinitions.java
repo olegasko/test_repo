@@ -99,6 +99,6 @@ public class StepDefinitions {
     public void blocksHasCorrectOrder(DataTable ListOfBlocks) {
         assertThat(howWeDoItPage.ListOfBlocks())
                 .as("The list of blocks has wrong order")
-                .isEqualTo(ListOfBlocks.transpose().asList());
+                .containsSequence(ListOfBlocks.transpose().asList());
     }
 }
