@@ -49,7 +49,7 @@ public abstract class CommonPage {
         link.click();
     }
 
-    public String GetPageName() {
+    public String getPageName() {
         SelenideElement title = $x("//h1");
         return title.getText();
     }

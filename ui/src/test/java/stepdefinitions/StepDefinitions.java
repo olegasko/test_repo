@@ -9,8 +9,6 @@ import pages.HowWeDoItPage;
 import pages.InvestorsPage;
 import pages.MainPage;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.open;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -83,21 +81,21 @@ public class StepDefinitions {
 
    @Then("user on the page {string}")
     public  void userOnThePage(String pageName){
-       assertThat(page.GetPageName())
+       assertThat(page.getPageName())
                .as("The page is not correct")
                .isEqualTo(pageName);
     }
 
     @Then("user can see blocks {string}")
     public void userCanSeeBlocks(String sectionName) {
-        assertThat(howWeDoItPage.ListOfSections())
+        assertThat(howWeDoItPage.listOfSections())
                 .as("The blocks don't exist")
                 .contains(sectionName);
     }
 
     @Then("blocks has correct order")
     public void blocksHasCorrectOrder(DataTable ListOfBlocks) {
-        assertThat(howWeDoItPage.ListOfBlocks())
+        assertThat(howWeDoItPage.listOfBlocks())
                 .as("The list of blocks has wrong order")
                 .containsSequence(ListOfBlocks.transpose().asList());
     }
