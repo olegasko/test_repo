@@ -35,13 +35,23 @@ public abstract class CommonPage {
     }
 
     public void activateLocation(String region, String lang) {
-        SelenideElement LocationButton = $x(".//ul[@class='location-selector__list']//a[text()='" + region + " ']");
+        SelenideElement locationButton = $x(".//ul[@class='location-selector__list']//a[text()='" + region + " ']");
         String location = region + " (" + lang + ")";
-        if (!isLocationCorrect(location)) LocationButton.click();
+        if (!isLocationCorrect(location)) locationButton.click();
     }
 
     public void openInvestorsPage() {
         closeCookiesBanner();
         investorsButton.click();
     }
+    public void clickOnLink(String linkName){
+        SelenideElement link = $x("//a[string()='"+ linkName + "' and contains(@class, 'top-navigation__item-link')]");
+        link.click();
+    }
+
+    public String getPageName() {
+        SelenideElement title = $x("//h1");
+        return title.getText();
+    }
+
 }
