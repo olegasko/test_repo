@@ -1,5 +1,4 @@
 import core.Config;
-import gherkin.ast.ScenarioOutline;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.spring.CucumberContextConfiguration;
